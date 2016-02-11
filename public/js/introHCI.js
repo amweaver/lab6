@@ -20,14 +20,23 @@ function initializePage() {
 function addProjectDetails(e) {
 	// Prevent following the link
 	e.preventDefault();
-
 	// Get the div ID, e.g., "project3"
 	var projectID = $(this).closest('.project').attr('id');
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
-
+	$.get('/project/' + idNumber, clickadick);
+	console.log($("#" + projectID).length);
+	console.log($(".details").length);
+	$("#" + projectID + " .details").html("foo");
+	
 	console.log("User clicked on project " + idNumber);
 }
+
+function clickadick(result)
+{
+
+}
+
 
 /*
  * Make an AJAX call to retrieve a color palette for the site
